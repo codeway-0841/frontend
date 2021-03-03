@@ -14,8 +14,8 @@ import { configSections } from "../ha-panel-config";
 import "./integrations-card";
 import "./system-health-card";
 
-const JS_TYPE = __BUILD__;
-const JS_VERSION = __VERSION__;
+const JS_TYPE = import.meta.env.SNOWPACK_PUBLIC__BUILD__;
+const JS_VERSION = import.meta.env.SNOWPACK_PUBLIC__VERSION__;
 
 class HaConfigInfo extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;

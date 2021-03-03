@@ -90,7 +90,7 @@ class HaPanelMap extends LocalizeMixin(PolymerElement) {
   }
 
   computeShowEditZone(hass) {
-    return !__DEMO__ && hass.user.is_admin;
+    return !import.meta.env.SNOWPACK_PUBLIC__DEMO__ && hass.user.is_admin;
   }
 
   openZonesEditor() {

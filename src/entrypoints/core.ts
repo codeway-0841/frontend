@@ -83,7 +83,7 @@ const connProm = async (auth) => {
   }
 };
 
-if (__DEV__) {
+if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
   // Remove adoptedStyleSheets so style inspector works on shadow DOM.
   // @ts-ignore
   delete Document.prototype.adoptedStyleSheets;
@@ -122,7 +122,7 @@ window.hassConnection.then(({ conn }) => {
 });
 
 window.addEventListener("error", (e) => {
-  if (!__DEV__ && e.message === "ResizeObserver loop limit exceeded") {
+  if (!import.meta.env.SNOWPACK_PUBLIC__DEV__ && e.message === "ResizeObserver loop limit exceeded") {
     e.stopImmediatePropagation();
     e.stopPropagation();
     return;
@@ -135,8 +135,8 @@ window.addEventListener("error", (e) => {
   ) {
     homeAssistant.hass.callService("system_log", "write", {
       logger: `frontend.${
-        __DEV__ ? "js_dev" : "js"
-      }.${__BUILD__}.${__VERSION__.replace(".", "")}`,
+        import.meta.env.SNOWPACK_PUBLIC__DEV__ ? "js_dev" : "js"
+      }.${import.meta.env.SNOWPACK_PUBLIC__BUILD__}.${import.meta.env.SNOWPACK_PUBLIC__VERSION__.replace(".", "")}`,
       message: `${e.filename}:${e.lineno}:${e.colno} ${e.message}`,
     });
   }

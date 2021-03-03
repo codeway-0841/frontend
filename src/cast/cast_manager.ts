@@ -1,8 +1,8 @@
 /* eslint-disable no-undef, no-console */
-import {
-  CastStateEventData,
-  SessionStateEventData,
-} from "chromecast-caf-receiver/cast.framework";
+// import {
+//   CastStateEventData,
+//   SessionStateEventData,
+// } from "chromecast-caf-receiver/cast.framework";
 import { Auth } from "home-assistant-js-websocket";
 import { castApiAvailable } from "./cast_framework";
 import { CAST_APP_ID, CAST_DEV, CAST_NS } from "./const";
@@ -80,7 +80,7 @@ export class CastManager {
   }
 
   public sendMessage(msg: ReceiverMessage) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       console.log("Sending cast message", msg);
     }
     this.castSession.sendMessage(CAST_NS, msg);
@@ -110,7 +110,7 @@ export class CastManager {
   }
 
   private _receiveMessage(msg: SenderMessage) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       console.log("Received cast message", msg);
     }
     if (msg.type === "receiver_status") {
@@ -120,7 +120,7 @@ export class CastManager {
   }
 
   private _sessionStateChanged(ev: SessionStateEventData) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       console.log("Cast session state changed", ev.sessionState);
     }
     // On Android, opening a new session always results in SESSION_RESUMED.
@@ -143,7 +143,7 @@ export class CastManager {
   }
 
   private _castStateChanged(ev: CastStateEventData) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       console.log("Cast state changed", ev.castState);
     }
     this._fireEvent("state-changed");

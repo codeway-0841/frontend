@@ -52,7 +52,7 @@ export const connectionMixin = <T extends Constructor<HassBaseEl>>(
         moreInfoEntityId: null,
         hassUrl: (path = "") => new URL(path, auth.data.hassUrl).toString(),
         callService: async (domain, service, serviceData = {}, target) => {
-          if (__DEV__) {
+          if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
             // eslint-disable-next-line no-console
             console.log(
               "Calling service",
@@ -71,7 +71,7 @@ export const connectionMixin = <T extends Constructor<HassBaseEl>>(
               target
             )) as Promise<ServiceCallResponse>;
           } catch (err) {
-            if (__DEV__) {
+            if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
               // eslint-disable-next-line no-console
               console.error(
                 "Error calling service",
@@ -101,7 +101,7 @@ export const connectionMixin = <T extends Constructor<HassBaseEl>>(
         ) => fetchWithAuth(auth, `${auth.data.hassUrl}${path}`, init),
         // For messages that do not get a response
         sendWS: (msg) => {
-          if (__DEV__) {
+          if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
             // eslint-disable-next-line no-console
             console.log("Sending", msg);
           }
@@ -109,14 +109,14 @@ export const connectionMixin = <T extends Constructor<HassBaseEl>>(
         },
         // For messages that expect a response
         callWS: <R>(msg) => {
-          if (__DEV__) {
+          if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
             // eslint-disable-next-line no-console
             console.log("Sending", msg);
           }
 
           const resp = conn.sendMessagePromise<R>(msg);
 
-          if (__DEV__) {
+          if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
             resp.then(
               // eslint-disable-next-line no-console
               (result) => console.log("Received", result),

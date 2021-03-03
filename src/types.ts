@@ -15,12 +15,12 @@ import { ExternalMessaging } from "./external_app/external_messaging";
 
 declare global {
   /* eslint-disable no-var, no-redeclare */
-  var __DEV__: boolean;
-  var __DEMO__: boolean;
-  var __BUILD__: "latest" | "es5";
-  var __VERSION__: string;
-  var __STATIC_PATH__: string;
-  var __BACKWARDS_COMPAT__: boolean;
+  var import.meta.env.SNOWPACK_PUBLIC__DEV__: boolean;
+  var import.meta.env.SNOWPACK_PUBLIC__DEMO__: boolean;
+  var import.meta.env.SNOWPACK_PUBLIC__BUILD__: "latest" | "es5";
+  var import.meta.env.SNOWPACK_PUBLIC__VERSION__: string;
+  var import.meta.env.SNOWPACK_PUBLIC__STATIC_PATH__: string;
+  var import.meta.env.SNOWPACK_PUBLIC__BACKWARDS_COMPAT__: boolean;
   /* eslint-enable no-var, no-redeclare */
 
   interface Window {

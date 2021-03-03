@@ -16,7 +16,7 @@ export const getUrl = (
 
   // if both module and JS provided, base url on frontend build
   if (panelConfig.module_url && panelConfig.js_url) {
-    if (__BUILD__ === "latest") {
+    if (import.meta.env.SNOWPACK_PUBLIC__BUILD__ === "latest") {
       return {
         type: "module",
         url: panelConfig.module_url,

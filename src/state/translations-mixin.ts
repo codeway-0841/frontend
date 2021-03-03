@@ -134,7 +134,7 @@ export default <T extends Constructor<HassBaseEl>>(superClass: T) =>
       force = false
     ): Promise<LocalizeFunc> {
       if (
-        __BACKWARDS_COMPAT__ &&
+        import.meta.env.SNOWPACK_PUBLIC__BACKWARDS_COMPAT__ &&
         !atLeastVersion(this.hass!.connection.haVersion, 0, 109)
       ) {
         if (category !== "state") {

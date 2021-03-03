@@ -21,7 +21,7 @@ let es5Loaded: Promise<unknown> | undefined;
 window.loadES5Adapter = () => {
   if (!es5Loaded) {
     es5Loaded = loadJS(
-      `${__STATIC_PATH__}polyfills/custom-elements-es5-adapter.js`
+      `${import.meta.env.SNOWPACK_PUBLIC__STATIC_PATH__}polyfills/custom-elements-es5-adapter.js`
     ).catch(); // Swallow errors as it raises errors on old browsers.
   }
   return es5Loaded;
@@ -49,11 +49,11 @@ function initialize(
 
   if (!webComponentsSupported) {
     start = start.then(() =>
-      loadJS(`${__STATIC_PATH__}polyfills/webcomponents-bundle.js`)
+      loadJS(`${import.meta.env.SNOWPACK_PUBLIC__STATIC_PATH__}polyfills/webcomponents-bundle.js`)
     );
   }
 
-  if (__BUILD__ === "es5") {
+  if (import.meta.env.SNOWPACK_PUBLIC__BUILD__ === "es5") {
     start = start.then(() => window.loadES5Adapter());
   }
 

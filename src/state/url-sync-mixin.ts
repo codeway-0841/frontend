@@ -18,7 +18,7 @@ export const urlSyncMixin = <
   superClass: T
 ) =>
   // Disable this functionality in the demo.
-  __DEMO__
+  import.meta.env.SNOWPACK_PUBLIC__DEMO__
     ? superClass
     : class extends superClass {
         private _ignoreNextPopState = false;

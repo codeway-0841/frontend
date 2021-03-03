@@ -49,11 +49,11 @@ class HaCameraStream extends LitElement {
     }
 
     return html`
-      ${__DEMO__ || this._shouldRenderMJPEG
+      ${import.meta.env.SNOWPACK_PUBLIC__DEMO__ || this._shouldRenderMJPEG
         ? html`
             <img
               @load=${this._elementResized}
-              .src=${__DEMO__
+              .src=${import.meta.env.SNOWPACK_PUBLIC__DEMO__
                 ? this.stateObj!.attributes.entity_picture
                 : computeMJPEGStreamUrl(this.stateObj)}
               .alt=${`Preview of the ${computeStateName(

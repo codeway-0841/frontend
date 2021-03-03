@@ -42,7 +42,7 @@ class MoreInfoPerson extends LitElement {
             ></ha-map>
           `
         : ""}
-      ${!__DEMO__ &&
+      ${!import.meta.env.SNOWPACK_PUBLIC__DEMO__ &&
       this.hass.user?.is_admin &&
       this.stateObj.state === "not_home" &&
       this.stateObj.attributes.latitude &&

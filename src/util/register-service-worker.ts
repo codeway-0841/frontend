@@ -19,7 +19,7 @@ export const registerServiceWorker = async (
 
   const reg = await navigator.serviceWorker.register("/service_worker.js");
 
-  if (!notifyUpdate || __DEV__ || __DEMO__) {
+  if (!notifyUpdate || import.meta.env.SNOWPACK_PUBLIC__DEV__ || import.meta.env.SNOWPACK_PUBLIC__DEMO__) {
     return;
   }
 

@@ -10,7 +10,7 @@ declare global {
 }
 
 export const navigate = (_node: any, path: string, replace = false) => {
-  if (__DEMO__) {
+  if (import.meta.env.SNOWPACK_PUBLIC__DEMO__) {
     if (replace) {
       history.replaceState(null, "", `${location.pathname}#${path}`);
     } else {

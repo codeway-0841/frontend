@@ -29,11 +29,11 @@ gulp.task(
       "build-translations"
     ),
     "copy-static-app",
-    env.useWDS()
-      ? "wds-watch-app"
-      : env.useRollup()
-      ? "rollup-watch-app"
-      : "webpack-watch-app"
+    // env.useWDS()
+    //   ? "wds-watch-app"
+    //   : env.useRollup()
+    //   ? "rollup-watch-app"
+    //   : "webpack-watch-app"
   )
 );
 

@@ -1,7 +1,7 @@
 import { CAST_DEV_APP_ID } from "./dev_const";
 
-// Guard dev mode with `__dev__` so it can only ever be enabled in dev mode.
-export const CAST_DEV = __DEV__ && true;
+// Guard dev mode with `import.meta.env.SNOWPACK_PUBLIC__DEV__` so it can only ever be enabled in dev mode.
+export const CAST_DEV = import.meta.env.SNOWPACK_PUBLIC__DEV__ && true;
 
 export const CAST_APP_ID = CAST_DEV ? CAST_DEV_APP_ID : "B12CE3CA";
 export const CAST_NS = "urn:x-cast:com.nabucasa.hast";

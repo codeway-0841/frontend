@@ -77,7 +77,7 @@ export class ExternalMessaging {
   }
 
   public receiveMessage(msg: ExternalMessage) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       // eslint-disable-next-line no-console
       console.log("Receiving message from external app", msg);
     }
@@ -100,7 +100,7 @@ export class ExternalMessaging {
   }
 
   protected _sendExternal(msg: InternalMessage) {
-    if (__DEV__) {
+    if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
       // eslint-disable-next-line no-console
       console.log("Sending message to external app", msg);
     }

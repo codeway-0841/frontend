@@ -11,7 +11,7 @@ const CONTRAST_RATIO = 4.5;
 const COLOR_SIMILARITY_THRESHOLD = 150;
 
 // For debug purposes, is being tree shaken.
-const DEBUG_COLOR = __DEV__ && false;
+const DEBUG_COLOR = import.meta.env.SNOWPACK_PUBLIC__DEV__ && false;
 
 const logColor = (
   color: Swatch,

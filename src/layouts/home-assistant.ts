@@ -39,7 +39,7 @@ export class HomeAssistantAppEl extends QuickBarMixin(HassElement) {
     return html`
       <app-location
         @route-changed=${this._routeChanged}
-        ?use-hash-as-path=${__DEMO__}
+        ?use-hash-as-path=${import.meta.env.SNOWPACK_PUBLIC__DEMO__}
       ></app-location>
       ${this._panelUrl === undefined || this._route === undefined
         ? ""

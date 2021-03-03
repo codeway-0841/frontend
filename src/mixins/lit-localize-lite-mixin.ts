@@ -54,7 +54,7 @@ export const litLocalizeLiteMixin = <T extends Constructor<LitElement>>(
       if (!this.translationFragment) {
         // In dev mode, we will issue a warning if after a second we are still
         // not configured correctly.
-        if (__DEV__) {
+        if (import.meta.env.SNOWPACK_PUBLIC__DEV__) {
           setTimeout(
             () =>
               !this.resources &&

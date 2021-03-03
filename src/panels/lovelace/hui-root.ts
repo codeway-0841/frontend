@@ -169,7 +169,7 @@ class HUIRoot extends LitElement {
                     >
                       <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
                     </mwc-icon-button>
-                    ${__DEMO__ /* No unused entities available in the demo */
+                    ${import.meta.env.SNOWPACK_PUBLIC__DEMO__ /* No unused entities available in the demo */
                       ? ""
                       : html`
                           <mwc-list-item
@@ -201,7 +201,7 @@ class HUIRoot extends LitElement {
                         "ui.panel.lovelace.editor.menu.raw_editor"
                       )}
                     </mwc-list-item>
-                    ${__DEMO__ /* No config available in the demo */
+                    ${import.meta.env.SNOWPACK_PUBLIC__DEMO__ /* No config available in the demo */
                       ? ""
                       : html`<mwc-list-item
                             graphic="icon"

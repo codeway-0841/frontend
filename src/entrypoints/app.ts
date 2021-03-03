@@ -6,4 +6,4 @@ import "../util/legacy-support";
 
 setPassiveTouchGestures(true);
 
-(window as any).frontendVersion = __VERSION__;
+(window as any).frontendVersion = import.meta.env.SNOWPACK_PUBLIC__VERSION__;

@@ -31,8 +31,8 @@ export const loggingMixin = <T extends Constructor<HassBaseEl>>(
     private _writeLog(log: WriteLogParams) {
       this.hass?.callService("system_log", "write", {
         logger: `frontend.${
-          __DEV__ ? "js_dev" : "js"
-        }.${__BUILD__}.${__VERSION__.replace(".", "")}`,
+          import.meta.env.SNOWPACK_PUBLIC__DEV__ ? "js_dev" : "js"
+        }.${import.meta.env.SNOWPACK_PUBLIC__BUILD__}.${import.meta.env.SNOWPACK_PUBLIC__VERSION__.replace(".", "")}`,
         message: log.message,
         level: log.level || "error",
       });
